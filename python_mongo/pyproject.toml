@@ -1,0 +1,11 @@
+[project]
+name = "python-mongo"
+version = "0.1.0"
+description = "Using pymongo library processing simple operations on MongoDB database"
+authors = ["Piotr Lipinski <kinetics20@gmail.com>"]
+license = "Beerware"
+readme = "README.md"
+requires-python = ">=3.13"
+dependencies = [
+    "pymongo>=4.12.1",
+]
