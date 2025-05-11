@@ -185,7 +185,7 @@ uvicorn server:app --reload --port 8006
 
 * 🍃 MongoDB 8.0
 * 🟨 Node.js / JavaScript
-* 🐍 Python 3.11
+* 🐍 Python 3.13
 * 🗃️ SQLite
 * 🌐 Express.js
 * 🧾 EJS
