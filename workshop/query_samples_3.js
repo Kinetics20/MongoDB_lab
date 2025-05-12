@@ -1,0 +1,39 @@
+show dbs
+
+show collections
+
+db.flights.find()
+
+db.flights.find({}, {'crew.name': 1,'destination.code': 1})
+
+db.flights.find({}, {'crew.position': 1, 'destination.city': 1})
+
+db.flights.find({}, {'crew.position': 1, 'destination.city': 1, 'destination.code': 1, _id: 0})
+
+db.flights.find({}, {'crew.position': 1, 'destination.city': 1, 'destination.code': 1, _id: 0}).limit(3)
+
+db.flights.find({}, {duration: 1,'crew.position': 1, 'destination.city': 1, 'destination.code': 1, _id: 0}).sort({duration: 1})
+
+db.flights.find({}, {duration: 1,'crew.position': 1, 'destination.city': 1, 'destination.code': 1, _id: 0}).sort({duration: -1})
+
+db.aircraft.find({}, {model: 1 })
+
+db.aircraft.find({}, {model: 1, _id: 0})
+
+db.aircraft.find({}, {model: 1, _id: 0}).limit(3)
+
+db.aircraft.find({model: 'Boeing 737-900'})
+
+db.aircraft.find({model:{$eq:'ATR 72'} })
+
+db.aircraft.find({range: {$eq: 5600}})
+
+db.aircraft.find({range: {$gte: 5600}})
+
+db.aircraft.find({range: {$gt: 5600}})
+
+db.aircraft.find({
+  _id: ObjectId('6821f9324d51b7df0530d867')
+
+})
+
