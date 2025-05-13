@@ -1,5 +1,5 @@
-show dbs
-
+// show dbs
+//
 show collections
 
 db.flights.find()
@@ -36,4 +36,30 @@ db.aircraft.find({
   _id: ObjectId('6821f9324d51b7df0530d867')
 
 })
+
+db.aircraft.find({range: {$ne: 5600}})
+
+db.aircraft.find({range: {$lt: 5600}}).sort({range: -1})
+
+db.aircraft.find({capacity: { $lte: 150}})
+
+db.aircraft.find({capacity: { $lt: 200}})
+
+db.aircraft.find({model: {$in: ['Airbus A350', 'Boeing 747']}})
+
+db.aircraft.find({model: {$nin: ['Airbus A350', 'Boeing 747']}})
+
+db.aircraft.find({model: {$regex: 'Boeing'}}).sort({range: 1})
+
+db.aircraft.find({model: {$regex: 'Boeing', $options: 'i'}})
+
+
+db.aircraft.find({model: {$regex: 'Airbus'}}).sort({model: -1})
+
+db.aircraft.find({model: {$in :[/^Boeing/]}})
+
+db.flights.findOne()
+
+
+
 
