@@ -130,3 +130,118 @@ db.aircraft.find({
     ]
 })
 
+db.flights.find({},{
+    aircraftCode: 1, _id: 0, crew: 1
+})
+
+db.flights.findOne()
+
+db.flights.find({
+    aircraftCode: { $exists: true, $type: 'string'}
+}, {
+    aircraftCode: 1, _id: 0
+})
+
+db.flights.find({
+    aircraftCode: { $exists: true}
+}, {
+    aircraftCode: 1, _id: 0
+})
+
+db.flights.find({
+    aircraftCode: null
+}, {
+    aircraftCode: 1
+})
+
+db.flights.find({
+    aircraftCode: {$exists: true, $type: 'null'}
+}, {
+    aircraftCode: 1
+})
+
+db.crew.findOne()
+
+db.crew.find({
+    skills: {$all: ['technical', 'management']}
+})
+
+
+db.crew.find({
+    skills: { $size: 2}
+})
+
+db.flights.find({
+    'crew.nationality': 'France'
+}, {
+    crew: 1
+})
+
+db.flights.find({
+    $and: [{
+        'crew.nationality': 'France',
+        'crew.nationality': 'Germany'
+    }]
+})
+
+db.flights.find({
+    'crew.nationality': {$in: ['France', 'Germany']}
+}, {'crew.$': 1})
+
+
+db.flights.find({
+    crew:[]
+})
+
+db.flights.find({
+    crew: {$size: 0}
+})
+
+db.flights.find({
+    'crew.position': { $ne: 'Captain'}
+}, {
+    crew: 1, departureDate: 1, departure: 1, destination: 1
+})
+
+db.flights.find({}, {crew: {$elemMatch: {position: 'Captain'}}}
+)
+
+db.flights.find({
+    crew: {$elemMatch: {position: 'Captain', hoursSlept: {$lt: 6}}}
+})
+
+
+db.flights.find({
+    crew: {$elemMatch: {position: 'Captain', hoursSlept: {$lt: 6}}}
+}, {
+    crew: {elemMatch: {position: 'Captain'}},
+})
+
+db.flights.find({
+    'crew.nationality': 'Germany',
+    'departure.country': 'Germany'
+})
+
+db.crew.find({
+    skills: 'management', skills: {$ne: 'technical'}
+})
+
+db.crew.find({
+    $and:
+    [
+        {skills: 'management'},
+        {skills: 'technical'}
+    ]
+})
+
+db.crew.find({
+    $and:
+    [
+        {skills: 'management'},
+        {skills: {$ne: 'engineering'}}
+    ]
+})
+
+
+
+
